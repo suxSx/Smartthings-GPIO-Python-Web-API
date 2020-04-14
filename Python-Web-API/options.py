@@ -1,3 +1,6 @@
+# Python-Web-API
+# v.1.0.0
+
 import os
 import json
 
@@ -17,6 +20,12 @@ v.1.0.0
 
     HOST_TEXT = "HOST_VALUE"
     HOST_VALUE = "0.0.0.0"
+
+    PIN_TEXT = "PIN_VALUE"
+    PIN_VALUE = 17
+
+    TIME_TEXT = "TIME_VALUE"
+    TIME_VALUE = 3
 
     #FOLDER Setup
     OP_ROOT_FOLDER_PATH_TEXT = "OP_ROOT_FOLDER_PATH"
@@ -61,7 +70,9 @@ v.1.0.0
         DATA['WEBAPI'] = []
         DATA['WEBAPI'].append({
             self.DETAIL_PRINT_TEXT : self.DETAIL_PRINT_VALUE,
-            self.HOST_TEXT : self.HOST_VALUE
+            self.HOST_TEXT : self.HOST_VALUE,
+            self.PIN_TEXT : self.PIN_VALUE,
+            self.TIME_TEXT : self.TIME_VALUE
         })
 
         if os.path.exists(self.OP_ROOT_CONFIG):
@@ -85,9 +96,13 @@ v.1.0.0
                     for p in data['WEBAPI']:
                         self.DETAIL_PRINT_VALUE = int(p[self.DETAIL_PRINT_TEXT])
                         self.HOST_VALUE = p[self.HOST_TEXT]
+                        self.PIN_VALUE = int(p[self.PIN_TEXT])
+                        self.TIME_VALUE = int(p[self.TIME_TEXT])
 
                         self.printText("+ {} are set to: {}".format(self.DETAIL_PRINT_TEXT, self.DETAIL_PRINT_VALUE), False)
-                        self.printText("+ {} are set to: {}".format(self.HOST_TEXT, self.HOST_VALUE), False)    
+                        self.printText("+ {} are set to: {}".format(self.HOST_TEXT, self.HOST_VALUE), False)   
+                        self.printText("+ {} are set to: {}".format(self.PIN_TEXT, self.PIN_VALUE), False)  
+                        self.printText("+ {} are set to: {}".format(self.TIME_TEXT, self.TIME_VALUE), False)   
        
             else:
                 self.printText("+ Config file dosent exist - using standard", False)

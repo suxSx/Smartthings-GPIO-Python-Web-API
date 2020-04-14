@@ -1,2 +1,3 @@
 requests
 flask
+RPi.GPIO
