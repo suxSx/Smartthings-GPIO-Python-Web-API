@@ -100,7 +100,7 @@ class doorApi(MethodView):
         if action == "open":
             #Fucntion for opening the door
             op.printText("\n- Action for opening door have been triggered", False)
-            turnPINON(op.PIN_VALUE, op.TIME_VALUE):
+            turnPINON(op.PIN_VALUE, op.TIME_VALUE)
             op.printText("+ Action for opening door ended\n", False)
 
             return make_response(jsonify(self.doorMsg["open"]), 400) 
@@ -108,7 +108,7 @@ class doorApi(MethodView):
         if action == "close":
             #Function for closing
             op.printText("\n- Action for closing door have been triggered", False)
-            turnPINOF(op.PIN_VALUE):
+            turnPINOF(op.PIN_VALUE)
             op.printText("+ Action for closing door ended\n", False)
             return make_response(jsonify(self.doorMsg["close"]), 400)
 
@@ -145,3 +145,6 @@ if __name__ == '__main__':
 
     op.printText("+ Running Flask\n", True)
     app.run(host= op.HOST_VALUE)
+
+    op.printText("\n+ Cleaning up before exit", True)
+    GPIO.cleanup()
