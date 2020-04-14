@@ -15,6 +15,9 @@ v.1.0.0
     DETAIL_PRINT_TEXT = "DETAIL_PRINT"
     DETAIL_PRINT_VALUE = "1"
 
+    HOST_TEXT = "HOST_VALUE"
+    HOST_VALUE = "0.0.0.0"
+
     #FOLDER Setup
     OP_ROOT_FOLDER_PATH_TEXT = "OP_ROOT_FOLDER_PATH"
     OP_ROOT_FOLDER_PATH_VALUE = "\\"
@@ -55,9 +58,10 @@ v.1.0.0
     def saveJSON(self):
         self.printText("+ Config export started", False)
         DATA = {}
-        DATA['GOLDEN'] = []
-        DATA['GOLDEN'].append({
-            self.DETAIL_PRINT_TEXT : self.DETAIL_PRINT_VALUE
+        DATA['WEBAPI'] = []
+        DATA['WEBAPI'].append({
+            self.DETAIL_PRINT_TEXT : self.DETAIL_PRINT_VALUE,
+            self.HOST_TEXT : self.HOST_VALUE
         })
 
         if os.path.exists(self.OP_ROOT_CONFIG):
@@ -78,9 +82,12 @@ v.1.0.0
             if os.path.exists(self.OP_ROOT_CONFIG):
                 with open(self.OP_ROOT_CONFIG) as json_file:
                     data = json.load(json_file)
-                    for p in data['GOLDEN']:
+                    for p in data['WEBAPI']:
                         self.DETAIL_PRINT_VALUE = int(p[self.DETAIL_PRINT_TEXT])
-                        self.printText("+ {} are set to: {}".format(self.DETAIL_PRINT_TEXT, self.DETAIL_PRINT_VALUE), False)  
+                        self.HOST_VALUE = p[self.HOST_TEXT]
+
+                        self.printText("+ {} are set to: {}".format(self.DETAIL_PRINT_TEXT, self.DETAIL_PRINT_VALUE), False)
+                        self.printText("+ {} are set to: {}".format(self.HOST_TEXT, self.HOST_VALUE), False)    
        
             else:
                 self.printText("+ Config file dosent exist - using standard", False)

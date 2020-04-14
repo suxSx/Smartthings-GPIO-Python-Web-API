@@ -136,5 +136,4 @@ Basic information about the project like founding, TODO, CODE of Conduct with a 
 
 <!-- CONTACT -->
 ## Contact
-Your Name - [@socialmedia](https://media.com/your_username) - email@example.com <br />
 Project Link: [https://github.com/suxsx/Python-Web-API](https://github.com/suxsx/Python-Web-API)
