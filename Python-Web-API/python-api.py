@@ -25,15 +25,13 @@ def setupGPIO(PIN):
     # Open the pin #DEFAULT = 17
     op.printText("+ SETUP FOR GPIO {} STARTED".format(PIN), False)
     GPIO.setup(PIN, GPIO.OUT)
-    op.printText("+ SETUP FOR GPIO {} ENDED".format(PIN), False)
 
     # Turning it off
     GPIO.output(PIN, GPIO.LOW)
     op.printText("+ GPIO {} TURNED OFF".format(PIN), False)
+    op.printText("+ SETUP FOR GPIO {} ENDED".format(PIN), False)
 
 def turnPINON(PIN, TIME):
-    op.printText("\n- Action for opening door have been triggered", False)
-
     #Turn on
     op.printText("+ TURNING GPIO {} ON".format(PIN), False)
     GPIO.output(PIN, GPIO.HIGH)
@@ -61,41 +59,7 @@ class HomeApi(MethodView):
 
 class doorApi(MethodView):
     """ /door/<action> """
-
-    #Error Messages
-    error = {
-        "404": {
-            "errorCode": "404",
-            "errorMessage": "Action Not Found, the command you tried does not exist."
-        },
-        "notor": {
-            "errorCode": "666",
-            "errorMessage": "Well this was unnexpeted, the error message does not exist or is from this world. You are really luck, this is a one in a life time experience!"
-        }
-    }
-
-    doorMsg = {
-        "open": {
-            "doorCode": "1337",
-            "doorMessage": "Signal for opening sendt"
-        },
-
-        "close": {
-            "doorCode": "7331",
-            "doorMessage": "Open signal terminated"
-        },
-
-        "comming": {
-            "doorCode": "8888", 
-            "doorMessage": "This function is still in development"
-        },
-
-        "running": {
-            "doorCode": "007", 
-            "doorMessage": "The server are up and running"
-        }
-    }
-        
+       
     def get(self, action):
         if action == "open":
             #Fucntion for opening the door
@@ -103,38 +67,38 @@ class doorApi(MethodView):
             turnPINON(op.PIN_VALUE, op.TIME_VALUE)
             op.printText("+ Action for opening door ended\n", False)
 
-            return make_response(jsonify(self.doorMsg["open"]), 400) 
+            return make_response(jsonify(op.doorMsg["open"]), 400) 
 
         if action == "close":
             #Function for closing
             op.printText("\n- Action for closing door have been triggered", False)
             turnPINOF(op.PIN_VALUE)
             op.printText("+ Action for closing door ended\n", False)
-            return make_response(jsonify(self.doorMsg["close"]), 400)
+            return make_response(jsonify(op.doorMsg["close"]), 400)
 
         if action == "status":
             #Function for status
-            return make_response(jsonify(self.doorMsg["running"]), 400)
+            return make_response(jsonify(op.doorMsg["running"]), 400)
 
         if action == "666":
-            return make_response(jsonify(self.error["notor"]), 400)
+            return make_response(jsonify(op.error["notor"]), 400)
         
         if action == "":
-            return make_response(jsonify(self.error["notor"]), 400)
+            return make_response(jsonify(op.error["notor"]), 400)
 
         else:
             #Action for error
-            return make_response(jsonify(self.error["404"]), 400)
+            return make_response(jsonify(op.error["404"]), 400)
 
     def delete(self):
-        return make_response(jsonify(self.doorMsg["comming"]), 400)
+        return make_response(jsonify(op.doorMsg["comming"]), 400)
 
 if __name__ == '__main__':
     #Setup API server
     op.printText("\n+ Setting up API server", True)
     app = Flask(__name__)
 
-    op.printText("\n+ Setting up GPIO", True)
+    op.printText("+ Setting up GPIO", True)
     setupGPIO(op.PIN_VALUE)
 
     op.printText("+ Adding endpoint: Home", True)

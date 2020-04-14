@@ -12,6 +12,10 @@ class options():
 |   \/  |_ | | (_) | |   \/\/  (/_ |_)  /--\ |   _|_ 
     /                                                 
 v.1.0.0
+
+Remeber to install device handler on Smartthings: 
+https://github.com/suxSx/Smartthings-GPIO-Python-Web-API
+
 	"""
 
     #Default Values
@@ -26,6 +30,40 @@ v.1.0.0
 
     TIME_TEXT = "TIME_VALUE"
     TIME_VALUE = 3
+
+    #MSG
+    error = {
+        "404": {
+            "errorCode": "404",
+            "errorMessage": "Action Not Found, the command you tried does not exist."
+        },
+        "notor": {
+            "errorCode": "666",
+            "errorMessage": "Well this was unnexpeted, the error message does not exist or is from this world. You are really luck, this is a one in a life time experience!"
+        }
+    }
+
+    doorMsg = {
+        "open": {
+            "doorCode": "1337",
+            "doorMessage": "Signal for opening sendt"
+        },
+
+        "close": {
+            "doorCode": "7331",
+            "doorMessage": "Open signal terminated"
+        },
+
+        "comming": {
+            "doorCode": "8888", 
+            "doorMessage": "This function is still in development"
+        },
+
+        "running": {
+            "doorCode": "007", 
+            "doorMessage": "The server are up and running"
+        }
+    }
 
     #FOLDER Setup
     OP_ROOT_FOLDER_PATH_TEXT = "OP_ROOT_FOLDER_PATH"

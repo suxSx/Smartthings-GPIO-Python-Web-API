@@ -9,123 +9,35 @@
 *** awsome-template-repository to the name of your project.
 -->
 
-![GitHub forks](https://img.shields.io/github/forks/suxsx/Python-Web-API)
-![GitHub stars](https://img.shields.io/github/stars/suxsx/Python-Web-API)
-![GitHub watchers](https://img.shields.io/github/watchers/suxsx/Python-Web-API)
-![GitHub](https://img.shields.io/github/license/suxsx/Python-Web-API)
-![GitHub issues](https://img.shields.io/github/issues/suxsx/)
-![GitHub repo size](https://img.shields.io/github/repo-size/suxsx/)
+![GitHub forks](https://img.shields.io/github/forks/suxsx/Smartthings-GPIO-Python-Web-API)
+![GitHub stars](https://img.shields.io/github/stars/suxsx/Smartthings-GPIO-Python-Web-API)
+![GitHub watchers](https://img.shields.io/github/watchers/suxsx/Smartthings-GPIO-Python-Web-API)
+![GitHub](https://img.shields.io/github/license/suxsx/Smartthings-GPIO-Python-Web-API)
+![GitHub issues](https://img.shields.io/github/issues/suxsx/Smartthings-GPIO-Python-Web-API)
+![GitHub repo size](https://img.shields.io/github/repo-size/suxsx/Smartthings-GPIO-Python-Web-API)
 
 <!-- ABOUT THE PROJECT -->
 # Python-Web-API
-Easy script for setting up your own Python Web API. Used for communicating with Raspberry PI from Smartthings. 
+Easy script for setting up your own Python Web API. Used for communicating with Raspberry PI from Smartthings. It makes it possible for you to turn on and off GPIO pins on your Raspberry PI from Smartthings and integrated your home system to your local Rasperry PI. Or modify it to run any actions you would like.
 
 <!-- SCREEN SHOT FROM THE PROGRAM -->
+![Imgur](https://imgur.com/M9Zm5T7.png)
 
-
-
-<!-- CONTENT -->
-## Table of Contents
-
-* [About the Project](#Awsome-Template-Repository)
-* [How to install](#How-to-install)
-* [Getting Started](#Getting-Started)
-  * [1. Running the program](#1.-Running-the-program)
-  * [2. Step two in how to use](#2.-Step-two-in-how-to-use)
-  * [3. Step three in how to use it](#3.-Step-three-in-how-to-use-it)
-* [Common Error](#Common-Error)
-  * [1. Name of ERROR #1](#1.-Name-of-ERROR-#1)
-  * [2. Name of ERROR #1](#2.-Name-of-ERROR-#2)
-* [Common Information](#Common-Information)
-* [Contact](#contact)
 
 <!-- HOW TO INSTALL -->
 ## How to install
-***Use the package manager [pip](https://pip.pypa.io/en/stable/) to install awsome-template and simply run:***
+Download the files locatated in Python-Web-API: ***python-api.py and options.py***. Save them in any folder and run python-api.py
 ```cmd
-pip install awsome-template
+sudo python python-api.py
 ```
 
-***Or download the project via git clone and run the following:***
-```cmd
-pip install -r requirements.txt
-python .\run_awsome_template.py
-```
+Install a new Device Handler in Smartthings using the code found in Smartthings Device Handler ***switch_device_handler_smartthings.groovy***. Add a new device and use ***WEB Service Switch*** as the device type. Do all this from samsungs web portal. 
 
-<!-- HOW DO YOU USE THE PROGRAM -->
-## Getting Started
-How do you use the program and what do you need to know about it?
+Open the new device on your Smartthings APP, find settings and enter the IP adress to your Raspberry PI and PORT. 
 
-### 1. Running the program
-To run simply type: **awsome-template** in console if you installed it from PIP. If you downloaded it from github: **python .\run_awsome_template.py** from the clone directory.<br />
-<br />
-***NB! You will need to run the script as administrator if you are using windows***
+***NB! This program only works on LAN. You can modify the code if you want to run it on WAN.***
 
-### 2. Step two in how to use
-More details in how to run it
 
->**Note in what to do:**
->- First point
->- Secound point
->- Third point
-
-Some word in the end to sumarise it. With examples:
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
-
-### 3. Step three in how to use it
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultrices laoreet mauris, sed fringilla dui ornare non. Ut rhoncus turpis nec lectus pharetra, eu facilisis dui tincidunt. Duis rutrum auctor massa sed cursus. Etiam mauris nisl, cursus sed mi ac, finibus tempus augue. Cras dictum id felis a semper. Quisque sollicitudin vel magna ac dictum. Nunc ut dolor porttitor nibh euismod bibendum. Curabitur nec venenatis ipsum.
-
-Pellentesque mattis, nulla a dapibus volutpat, arcu orci consequat elit, vel pretium eros ligula eu ligula. Praesent sed pretium leo. Fusce a aliquet felis, suscipit euismod libero. Nunc nec dictum eros. Nam eget sapien sagittis, tempus urna a, convallis velit. Sed eget neque vitae sem ultricies porta quis at diam. Donec pellentesque lacinia nisl, id auctor mauris posuere at. Suspendisse potenti. Aenean ipsum enim, egestas ut magna vel, blandit condimentum purus. Pellentesque porta arcu at dapibus fermentum. Quisque ac risus tempus, semper lacus nec, rhoncus neque. Sed euismod massa pretium, cursus mi ut, pretium tellus. Suspendisse ac felis at enim dictum gravida at eget leo. Pellentesque non tellus accumsan, convallis nisl ac, molestie ipsum. Phasellus sodales venenatis enim, vitae molestie sem finibus eu. Nam risus ante, vulputate sed velit eu, malesuada placerat arcu.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<!-- HOW DO YOU FIX COMMON ERRORS-->
-## Common Error
-### 1. Name of ERROR #1
-```python
->>> 10 * (1/0)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ZeroDivisionError: division by zero
->>> 4 + spam*3
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'spam' is not defined
->>> '2' + 2
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: Can't convert 'int' object to str implicitly
-```
-What do you do to fix the **error** presented. Step by step solution.
-
-### 2. Name of ERROR #2
-```python-
->>> while True print('Hello world')
-  File "<stdin>", line 1
-    while True print('Hello world')
-                   ^
-SyntaxError: invalid syntax
-```
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultrices laoreet mauris, sed fringilla dui ornare non. Ut rhoncus turpis nec lectus pharetra, eu facilisis dui tincidunt. Duis rutrum auctor massa sed cursus. Etiam mauris nisl, cursus sed mi ac, finibus tempus augue. Cras dictum id felis a semper. Quisque sollicitudin vel magna ac dictum. Nunc ut dolor porttitor nibh euismod bibendum. Curabitur nec venenatis ipsum.
-
-```python
-for arg in sys.argv[1:]:
-    try:
-        f = open(arg, 'r')
-    except IOError:
-        print 'cannot open', arg
-    else:
-        print arg, 'has', len(f.readlines()), 'lines'
-        f.close()
-```
 <!-- BASIC INFORMATION YOU NEED TO KNOW -->
 ## Common Information
 Basic information about the project like founding, TODO, CODE of Conduct with a short information text describing it all. 
@@ -136,4 +48,4 @@ Basic information about the project like founding, TODO, CODE of Conduct with a 
 
 <!-- CONTACT -->
 ## Contact
-Project Link: [https://github.com/suxsx/Python-Web-API](https://github.com/suxsx/Python-Web-API)
+Project Link: [https://github.com/suxsx/Python-Web-API](https://github.com/suxsx/Smartthings-GPIO-Python-Web-API)
