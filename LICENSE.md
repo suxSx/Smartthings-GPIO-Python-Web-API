@@ -1,10 +1,3 @@
-<!--
-*** Thanks for checking out this Template. If you have a suggestion that would
-*** make this better, please fork the repo and create a pull request.
-*** 
-*** In LICENSE to change the values: {LEGAL NAME}
--->
-
 MIT License
 
 Copyright (c) 2020 Marcus Knoph
